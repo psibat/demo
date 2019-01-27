@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\ecs">
+      <UniqueIdentifier>{1493a0a6-fcb0-4984-8ac2-90c10af23414}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ecs\systems">
+      <UniqueIdentifier>{e8f6279a-1e38-4fd5-a8b4-f4db4e489c70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ecs\components">
+      <UniqueIdentifier>{eb0df7bc-0aef-47c1-8aaf-4b620007a80c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\util">
+      <UniqueIdentifier>{4dea1c33-4390-48ba-a2b7-5ab7992a78c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ecs">
+      <UniqueIdentifier>{a9b8d78b-f864-4076-b73c-f63faaa7159f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ecs\systems">
+      <UniqueIdentifier>{0285de95-5b87-4078-9d96-8a3ce21a1954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{1f80aa4b-2504-45e1-895c-1a29f8477282}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="collision_system.cpp">
+      <Filter>Source Files\ecs\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="entity_manager.cpp">
+      <Filter>Source Files\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="system.cpp">
+      <Filter>Source Files\ecs\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="coordinates.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="render_system.cpp">
+      <Filter>Source Files\ecs\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="input_system.cpp">
+      <Filter>Source Files\ecs\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="action_system.cpp">
+      <Filter>Source Files\ecs\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="physics_system.cpp">
+      <Filter>Source Files\ecs\systems</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="entity_manager.h">
+      <Filter>Header Files\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="component.h">
+      <Filter>Header Files\ecs\components</Filter>
+    </ClInclude>
+    <ClInclude Include="collision_component.h">
+      <Filter>Header Files\ecs\components</Filter>
+    </ClInclude>
+    <ClInclude Include="collision_system.h">
+      <Filter>Header Files\ecs\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>Header Files\ecs\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite_component.h">
+      <Filter>Header Files\ecs\components</Filter>
+    </ClInclude>
+    <ClInclude Include="animation.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="position_component.h">
+      <Filter>Header Files\ecs\components</Filter>
+    </ClInclude>
+    <ClInclude Include="coordinates.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="render_system.h">
+      <Filter>Header Files\ecs\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="input_system.h">
+      <Filter>Header Files\ecs\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="physics_component.h">
+      <Filter>Header Files\ecs\components</Filter>
+    </ClInclude>
+    <ClInclude Include="action_component.h">
+      <Filter>Header Files\ecs\components</Filter>
+    </ClInclude>
+    <ClInclude Include="actions.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="action_system.h">
+      <Filter>Header Files\ecs\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="physics_system.h">
+      <Filter>Header Files\ecs\systems</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\player.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
