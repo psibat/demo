@@ -5,6 +5,8 @@ struct Animation {
 	int total_frames;
 	int speed;
 
+	double accumulated = 0;
+
 	Animation() {};
 	Animation(int row, int total_frames, int speed) {
 		this->row = row;

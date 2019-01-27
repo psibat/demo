@@ -23,9 +23,6 @@ int EntityManager::create() {
 void EntityManager::destroy(int id) {
 	existence.at(id) = false;
 
-	if (player == id) player = -1;
-	if (center == id) center = -1;
-
 	for (auto &component_list : components) {
 		remove(id, component_list.first);
 	}

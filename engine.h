@@ -30,6 +30,7 @@ class Engine {
 
 		void gameplay();
 
+		void input();
 		void process();
 		void draw();
 

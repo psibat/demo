@@ -1,15 +1,13 @@
 #pragma once
 
-#include "system.h"
+#include "basic_system.h"
 
-class PhysicsSystem : public System {
+class PhysicsSystem : public BasicSystem {
 	public:
 		PhysicsSystem(EntityManager &entity_manager);
 
 		void update();
 
-
 	private:
-
 		void update_entity(int id);
 };

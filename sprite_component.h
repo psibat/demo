@@ -23,6 +23,7 @@ struct SpriteComponent : public Component {
 	int scale = 1;
 	RenderPriority priority;
 	std::map<Action, Animation> animations;
+	int current_frame = 0;
 	std::string path_to_file;
 
 

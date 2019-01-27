@@ -24,8 +24,6 @@ void Engine::start() {
 	SDL_RenderPresent(renderer);
 
 	int player = entity_manager.create();
-	entity_manager.player = player;
-	entity_manager.center = player;
 	entity_manager.add(player, new CollisionComponent());
 	entity_manager.add(player, new SpriteComponent());
 	entity_manager.add(player, new PositionComponent(0, 0));
@@ -39,7 +37,6 @@ void Engine::start() {
 	entity_manager.add(other, new CollisionComponent());
 
 	gameplay();
-
 	stop();
 
 }
@@ -52,15 +49,20 @@ void Engine::stop() {
 
 void Engine::gameplay() {
 	bool is_running = true;
-
 	const int FPS = 60;
 	const int FRAME_DELAY = 1000 / FPS;
-
-	Uint32 frame_start;
-	int frame_time;
+	Uint64 now = SDL_GetPerformanceCounter();
+	Uint64 last = 0;
+	double delta_time = 0;
+	double accumulator = 0;
 
 	while (is_running) {
-		frame_start = SDL_GetTicks();
+		last = now;
+		now = SDL_GetPerformanceCounter();
+		delta_time = (double)((now - last) * 1000 / (double) SDL_GetPerformanceFrequency());
+		accumulator += delta_time;
+
+		std::cout << "Delta: " << delta_time << std::endl;
 
 		SDL_PollEvent(&event);
 		switch (event.type) {
@@ -70,21 +72,23 @@ void Engine::gameplay() {
 		default:
 			break;
 		}
+		std::cout << "FPS: " << (delta_time > 0 ? 1000 / delta_time : 0) << std::endl;
 
-		draw();
-		process();
-		
-		frame_time = SDL_GetTicks() - frame_start;
-
-		if (FRAME_DELAY > frame_time) {
-			SDL_Delay(FRAME_DELAY - frame_time);
+		input();
+		while (accumulator >= FRAME_DELAY) {
+			process();
+			accumulator -= FRAME_DELAY;
 		}
+		draw();
 	}
 }
 
-void Engine::process() {
+void Engine::input() {
 	input_system.update(event);
-	//action_system.update();
+}
+
+void Engine::process() {
+	action_system.update();
 	physics_system.update();
 }
 

@@ -64,12 +64,18 @@ Coordinates &Coordinates::operator/=(const Coordinates &other) {
 	return this->divide(other);
 }
 
-Coordinates &Coordinates::operator*(const int &value) {
+Coordinates &Coordinates::operator*(const float &value) {
 	this->x *= value;
 	this->y *= value;
 
 	return *this;
 }
+
+std::ostream& operator<<(std::ostream &out, const Coordinates &coords) {
+	out << coords.x << "," << coords.y;
+	return out;
+}
+
 
 Coordinates &Coordinates::clear() {
 	this->x *= 0;

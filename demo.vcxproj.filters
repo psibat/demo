@@ -45,9 +45,6 @@
     <ClCompile Include="entity_manager.cpp">
       <Filter>Source Files\ecs</Filter>
     </ClCompile>
-    <ClCompile Include="system.cpp">
-      <Filter>Source Files\ecs\systems</Filter>
-    </ClCompile>
     <ClCompile Include="engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -66,6 +63,12 @@
     <ClCompile Include="physics_system.cpp">
       <Filter>Source Files\ecs\systems</Filter>
     </ClCompile>
+    <ClCompile Include="basic_system.cpp">
+      <Filter>Source Files\ecs\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="system.cpp">
+      <Filter>Source Files\ecs\systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="entity_manager.h">
@@ -78,9 +81,6 @@
       <Filter>Header Files\ecs\components</Filter>
     </ClInclude>
     <ClInclude Include="collision_system.h">
-      <Filter>Header Files\ecs\systems</Filter>
-    </ClInclude>
-    <ClInclude Include="system.h">
       <Filter>Header Files\ecs\systems</Filter>
     </ClInclude>
     <ClInclude Include="engine.h">
@@ -117,6 +117,12 @@
       <Filter>Header Files\ecs\systems</Filter>
     </ClInclude>
     <ClInclude Include="physics_system.h">
+      <Filter>Header Files\ecs\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="basic_system.h">
+      <Filter>Header Files\ecs\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
       <Filter>Header Files\ecs\systems</Filter>
     </ClInclude>
   </ItemGroup>

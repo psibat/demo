@@ -38,10 +38,6 @@ class EntityManager {
 				remove(id, &typeid(T));
 			}
 
-		// Single owner entity flags
-		int player = -1;
-		int center = -1;
-
 	private:
 		int const max_entities;
 

@@ -24,7 +24,7 @@ void RenderSystem::update_entity(SDL_Renderer* renderer, int id) {
 	SpriteComponent *sprite = entity_manager.get<SpriteComponent>(id);
 	PositionComponent *position = entity_manager.get<PositionComponent>(id);
 	if (sprite != NULL && position != NULL) {
-		sprite->src_rect.x = sprite->src_rect.w * (int) ((SDL_GetTicks() / 100) % 4);
+		sprite->src_rect.x = sprite->src_rect.w * (int)((SDL_GetTicks() / 100) % 4);
 		SDL_Rect dest_rect;
 		dest_rect.x = this->scale * position->coords.x;
 		dest_rect.y = this->scale * position->coords.y;

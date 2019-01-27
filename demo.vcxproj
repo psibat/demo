@@ -140,6 +140,7 @@
     <ClCompile Include="coordinates.cpp" />
     <ClCompile Include="physics_system.cpp" />
     <ClCompile Include="render_system.cpp" />
+    <ClCompile Include="basic_system.cpp" />
     <ClCompile Include="system.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="position_component.h" />
     <ClInclude Include="sprite_component.h" />
     <ClInclude Include="render_system.h" />
+    <ClInclude Include="basic_system.h" />
     <ClInclude Include="system.h" />
   </ItemGroup>
   <ItemGroup>

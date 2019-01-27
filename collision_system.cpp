@@ -1,6 +1,6 @@
 #include "collision_system.h"
 
-CollisionSystem::CollisionSystem(EntityManager &entity_manager) : System(entity_manager) {}
+CollisionSystem::CollisionSystem(EntityManager &entity_manager) : BasicSystem(entity_manager) {}
 
 void CollisionSystem::update() {
 	for (int id = 0; id < entity_manager.get_max_entities(); id++) {
