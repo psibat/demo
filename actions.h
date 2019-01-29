@@ -1,9 +1,11 @@
 #pragma once
 enum Action {
 	NONE,
+	MOVEMENT_START = NONE,
 	MOVE_UP,
 	MOVE_DOWN,
 	MOVE_LEFT,
 	MOVE_RIGHT,
-	MOVEMENT_END
+	MOVEMENT_END,
+	ATTACK
 };

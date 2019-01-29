@@ -4,7 +4,7 @@
 
 #include <string>
 #include <map>
-#include "SDL.h"
+#include <SDL.h>
 
 #include "animation.h"
 #include "actions.h"

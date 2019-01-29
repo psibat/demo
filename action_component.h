@@ -7,7 +7,6 @@
 #include <SDL.h>
 
 #include "actions.h"
-#include "coordinates.h"
 
 struct ActionComponent : public Component {
 	ActionComponent() {}

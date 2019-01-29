@@ -19,6 +19,8 @@ class Engine {
 		SDL_Renderer *renderer;
 		SDL_Event event;
 
+		bool is_running = true;
+
 		EntityManager entity_manager;
 
 		// Systems

@@ -1,7 +1,7 @@
 #pragma once
 #include "system.h"
 
-#include "SDL.h"
+#include <SDL.h>
 
 class InputSystem : public System {
 	public:

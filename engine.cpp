@@ -2,7 +2,15 @@
 
 #include <iostream>
 
-#include "SDL.h"
+#include <SDL.h>
+
+const int FPS_LIMIT = 60;
+const int FRAME_DELAY = 1000 / FPS_LIMIT;
+const int UPDATE_RATE = 60;
+const int UPDATE_DELAY = 1000 / UPDATE_RATE;
+const int NATIVE_WIDTH = 768;
+const int NATIVE_HEIGHT = 432;
+
 
 Engine::Engine() : entity_manager(200), 
 collision_system(entity_manager), render_system(entity_manager), input_system(entity_manager), action_system(entity_manager), physics_system(entity_manager) {}
@@ -15,7 +23,7 @@ void Engine::start() {
 	int height, width;
 
 	SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 768, 432, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow("demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, NATIVE_WIDTH, NATIVE_HEIGHT, SDL_WINDOW_SHOWN);
 
 	renderer = SDL_CreateRenderer(window, -1, 0);
 
@@ -48,42 +56,53 @@ void Engine::stop() {
 }
 
 void Engine::gameplay() {
-	bool is_running = true;
-	const int FPS = 60;
-	const int FRAME_DELAY = 1000 / FPS;
-	Uint64 now = SDL_GetPerformanceCounter();
-	Uint64 last = 0;
-	double delta_time = 0;
-	double accumulator = 0;
+	Uint64 current_counter = 0;
+	Uint64 previous_counter = SDL_GetPerformanceCounter();
+
+	double delta_time_ms = 0;
+	double accumulated_ms = 0;
 
 	while (is_running) {
-		last = now;
-		now = SDL_GetPerformanceCounter();
-		delta_time = (double)((now - last) * 1000 / (double) SDL_GetPerformanceFrequency());
-		accumulator += delta_time;
+		// Usual delta time calc
+		current_counter = SDL_GetPerformanceCounter();
+		delta_time_ms = (double)((current_counter - previous_counter) * 1000 / SDL_GetPerformanceFrequency());
+		previous_counter = current_counter;
+		accumulated_ms += delta_time_ms;
 
-		std::cout << "Delta: " << delta_time << std::endl;
+		// FPS Counter
+		std::cout << "FPS: " << (delta_time_ms > 0 ? 1000 / delta_time_ms : 0) << std::endl;
 
-		SDL_PollEvent(&event);
-		switch (event.type) {
-		case SDL_QUIT:
-			is_running = false;
-			break;
-		default:
-			break;
-		}
-		std::cout << "FPS: " << (delta_time > 0 ? 1000 / delta_time : 0) << std::endl;
-
+		// Check input / if game should quit
 		input();
-		while (accumulator >= FRAME_DELAY) {
+
+		// Make sure game process only occurs at UPDATE_RATE
+		while (accumulated_ms >= UPDATE_DELAY) {
 			process();
-			accumulator -= FRAME_DELAY;
+			accumulated_ms -= UPDATE_DELAY;
 		}
+
+		// Render
 		draw();
+
+		// If FPS limit assigned add a delay
+		if (FPS_LIMIT) {
+			delta_time_ms = (double)((SDL_GetPerformanceCounter() - current_counter) * 1000 / SDL_GetPerformanceFrequency());
+			if (FRAME_DELAY > delta_time_ms) {
+				SDL_Delay(FRAME_DELAY - delta_time_ms);
+			}
+		}
 	}
 }
 
 void Engine::input() {
+	SDL_PollEvent(&event);
+	switch (event.type) {
+	case SDL_QUIT:
+		is_running = false;
+		break;
+	default:
+		break;
+	}
 	input_system.update(event);
 }
 
